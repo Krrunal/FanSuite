@@ -59,7 +59,12 @@ export class MockBackendService {
     }
 
     // Processes an incoming message transmission idempotently
-    static async processMessagePost(chatId: string, msg: ChatMessage): Promise<ChatMessage> {
+    static async processMessagePost(chatId: string, msg: ChatMessage, isOnline: boolean): Promise<ChatMessage> {
+
+        if (!isOnline) {
+            throw new Error('NETWORK_DISCONNECTED');
+        }
+
         const db = await this.getDatabase(chatId);
         const existingIndex = db.findIndex((m) => m.clientId === msg.clientId);
 

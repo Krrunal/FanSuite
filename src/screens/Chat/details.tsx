@@ -337,10 +337,14 @@ export default function ChatDetailScreen({
 
                     // Process post through the MockBackendService
                     try {
-                        await MockBackendService.processMessagePost(chatId, nextOutboxItem);
+                        await MockBackendService.processMessagePost(chatId, nextOutboxItem, effectiveOnline);
                         await ClientOutboxManager.remove(chatId, nextOutboxItem.clientId);
                         await reconcileThread();
                     } catch (err: any) {
+                        if (err.message === 'NETWORK_DISCONNECTED') {
+                            // Stop processing the queue, leave items as 'pending'
+                            break;
+                        }
                         if (err.message === 'NETWORK_TIMEOUT_ACK_LOST' || dropAckRef.current) {
                             await ClientOutboxManager.update(chatId, nextOutboxItem.clientId, {
                                 status: 'failed',
@@ -403,7 +407,7 @@ export default function ChatDetailScreen({
                 await runSequentialCatchUp();
             }
         })();
-    }, [chatId, reconcileThread, runSequentialCatchUp]);
+    }, [chatId, reconcileThread, runSequentialCatchUp, forceOffline]);
 
 
     useEffect(() => {
