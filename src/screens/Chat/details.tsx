@@ -383,6 +383,11 @@ export default function ChatDetailScreen({
      */
     useEffect(() => {
         (async () => {
+            // 1. Fetch current network state immediately
+            const netState = await NetInfo.fetch();
+            const online = Boolean(netState.isConnected && netState.isInternetReachable !== false);
+            setIsDeviceConnected(online);
+
             const rawServer = await MockBackendService.getDatabase(chatId);
             if (!rawServer || rawServer.length === 0) {
                 const initialSeed = getInitialSeedMessages().map((m) => ({
@@ -393,7 +398,10 @@ export default function ChatDetailScreen({
                 await MockBackendService.saveDatabase(chatId, initialSeed);
             }
             await reconcileThread();
-            await runSequentialCatchUp();
+
+            if (online && !forceOffline) {
+                await runSequentialCatchUp();
+            }
         })();
     }, [chatId, reconcileThread, runSequentialCatchUp]);
 
