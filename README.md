@@ -4,3 +4,7 @@
 * **DOCUMENT:** [DOCUMENT.md](DOCUMENT.md)
 * **RECORDINGS:** [RECORDINGS.md](RECORDINGS.md)
 * **AI:** [AI.md](AI.md)
+
+### Device Information
+- Samsung S23 Ultra
+- Android v16
