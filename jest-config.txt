@@ -1,0 +1,203 @@
+{
+  "configs": [
+    {
+      "automock": false,
+      "cache": true,
+      "cacheDirectory": "/private/var/folders/sx/qrn4v8_14zd50lrrg3c2q4sr0000gn/T/jest_dx",
+      "clearMocks": false,
+      "collectCoverageFrom": [],
+      "coverageDirectory": "/Users/techdoodles/Prakash/React-Native/FanSuite/coverage",
+      "coveragePathIgnorePatterns": [
+        "/node_modules/"
+      ],
+      "cwd": "/Users/techdoodles/Prakash/React-Native/FanSuite",
+      "detectLeaks": false,
+      "detectOpenHandles": false,
+      "errorOnDeprecated": false,
+      "extensionsToTreatAsEsm": [],
+      "fakeTimers": {
+        "enableGlobally": false
+      },
+      "forceCoverageMatch": [],
+      "globals": {},
+      "haste": {
+        "defaultPlatform": "ios",
+        "platforms": [
+          "android",
+          "ios",
+          "native"
+        ]
+      },
+      "id": "a6687f784a710326be0f9357a86b25dc",
+      "injectGlobals": true,
+      "moduleDirectories": [
+        "node_modules"
+      ],
+      "moduleFileExtensions": [
+        "js",
+        "mjs",
+        "cjs",
+        "jsx",
+        "ts",
+        "tsx",
+        "json",
+        "node"
+      ],
+      "moduleNameMapper": [
+        [
+          "^@/(.*)$",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/src/$1"
+        ],
+        [
+          "\\.(css|scss|sass)$",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/tests/mocks/styleMock.js"
+        ],
+        [
+          "^@/assets/(.*)$",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/assets/$1"
+        ],
+        [
+          "^react-native($|/.*)",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/react-native/$1"
+        ],
+        [
+          "^react-native-vector-icons$",
+          "@expo/vector-icons"
+        ],
+        [
+          "^react-native-vector-icons/(.*)",
+          "@expo/vector-icons/$1"
+        ]
+      ],
+      "modulePathIgnorePatterns": [],
+      "openHandlesTimeout": 1000,
+      "prettierPath": "prettier",
+      "resetMocks": false,
+      "resetModules": false,
+      "resolver": "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/@react-native/jest-preset/jest/resolver.js",
+      "restoreMocks": false,
+      "rootDir": "/Users/techdoodles/Prakash/React-Native/FanSuite",
+      "roots": [
+        "/Users/techdoodles/Prakash/React-Native/FanSuite"
+      ],
+      "runner": "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/jest-runner/build/index.js",
+      "sandboxInjectedGlobals": [],
+      "setupFiles": [
+        "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/@react-native/jest-preset/jest/setup.js",
+        "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/jest-expo/src/preset/setup.js"
+      ],
+      "setupFilesAfterEnv": [
+        "/Users/techdoodles/Prakash/React-Native/FanSuite/jest.setup.js"
+      ],
+      "skipFilter": false,
+      "slowTestThreshold": 5,
+      "snapshotFormat": {
+        "escapeString": false,
+        "printBasicPrototype": false
+      },
+      "snapshotSerializers": [],
+      "testEnvironment": "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/@react-native/jest-preset/jest/react-native-env.js",
+      "testEnvironmentOptions": {},
+      "testLocationInResults": false,
+      "testMatch": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[tj]s?(x)"
+      ],
+      "testPathIgnorePatterns": [
+        "/node_modules/"
+      ],
+      "testRegex": [],
+      "testRunner": "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/jest-circus/runner.js",
+      "transform": [
+        [
+          "^.+\\.(bmp|gif|jpg|jpeg|mp4|png|psd|svg|webp)$",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/@react-native/jest-preset/jest/assetFileTransformer.js",
+          {}
+        ],
+        [
+          "\\.[jt]sx?$",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/babel-jest/build/index.js",
+          {
+            "root": "/Users/techdoodles/Prakash/React-Native/FanSuite",
+            "babelrcRoots": "/Users/techdoodles/Prakash/React-Native/FanSuite",
+            "babelrc": true,
+            "configFile": true,
+            "presets": [
+              "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/expo/internal/babel-preset.js"
+            ],
+            "caller": {
+              "name": "metro",
+              "bundler": "metro",
+              "platform": "ios"
+            }
+          }
+        ],
+        [
+          "^.+\\.(bmp|gif|jpg|jpeg|png|psd|svg|webp|xml|m4v|mov|mp4|mpeg|mpg|webm|aac|aiff|caf|m4a|mp3|wav|html|pdf|yaml|yml|otf|ttf|zip|heic|avif|db)$",
+          "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/jest-expo/src/preset/assetFileTransformer.js",
+          {}
+        ]
+      ],
+      "transformIgnorePatterns": [
+        "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|@expo-google-fonts|react-navigation|@react-navigation|@sentry/react-native|native-base|standard-navigation))",
+        "/node_modules/react-native-reanimated/plugin/",
+        "/node_modules/@react-native/babel-preset/"
+      ],
+      "watchPathIgnorePatterns": []
+    }
+  ],
+  "globalConfig": {
+    "bail": 0,
+    "changedFilesWithAncestor": false,
+    "ci": false,
+    "collectCoverage": false,
+    "collectCoverageFrom": [],
+    "coverageDirectory": "/Users/techdoodles/Prakash/React-Native/FanSuite/coverage",
+    "coverageProvider": "babel",
+    "coverageReporters": [
+      "json",
+      "text",
+      "lcov",
+      "clover"
+    ],
+    "detectLeaks": false,
+    "detectOpenHandles": false,
+    "errorOnDeprecated": false,
+    "expand": false,
+    "findRelatedTests": false,
+    "forceExit": false,
+    "json": false,
+    "lastCommit": false,
+    "listTests": false,
+    "logHeapUsage": false,
+    "maxConcurrency": 5,
+    "maxWorkers": 7,
+    "noStackTrace": false,
+    "nonFlagArgs": [],
+    "notify": false,
+    "notifyMode": "failure-change",
+    "onlyChanged": false,
+    "onlyFailures": false,
+    "openHandlesTimeout": 1000,
+    "passWithNoTests": false,
+    "projects": [],
+    "rootDir": "/Users/techdoodles/Prakash/React-Native/FanSuite",
+    "runTestsByPath": false,
+    "seed": -1872042165,
+    "skipFilter": false,
+    "snapshotFormat": {
+      "escapeString": false,
+      "printBasicPrototype": false
+    },
+    "testFailureExitCode": 1,
+    "testPathPattern": "",
+    "testSequencer": "/Users/techdoodles/Prakash/React-Native/FanSuite/node_modules/@jest/test-sequencer/build/index.js",
+    "updateSnapshot": "new",
+    "useStderr": false,
+    "watch": false,
+    "watchAll": false,
+    "watchman": true,
+    "workerThreads": false
+  },
+  "version": "29.7.0"
+}
