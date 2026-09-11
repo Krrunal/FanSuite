@@ -212,7 +212,7 @@ export default function ChatDetailScreen({
     const [inputText, setInputText] = useState('');
     const [selectedAttachment, setSelectedAttachment] = useState<{ uri: string; name: string } | null>(null);
 
-    const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(true);
+    const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
     const [forceOffline, setForceOffline] = useState(false);
     const [dropAckEnabled, setDropAckEnabled] = useState(false);
 
@@ -222,8 +222,7 @@ export default function ChatDetailScreen({
     const [hasMoreHistory, setHasMoreHistory] = useState(true);
     const [reduceMotion, setReduceMotion] = useState(false);
 
-    const effectiveOnline = isDeviceConnected && !forceOffline;
-
+    const effectiveOnline = isDeviceConnected === true && !forceOffline;
 
     useEffect(() => {
         AccessibilityInfo.isReduceMotionEnabled().then(setReduceMotion);
@@ -293,7 +292,10 @@ export default function ChatDetailScreen({
      * @requires
      */
     const runSequentialCatchUp = useCallback(async () => {
-        if (!effectiveOnline || isSyncingRef.current) return;
+        const currentNet = await NetInfo.fetch();
+        const isActuallyOnline = Boolean(currentNet.isConnected && currentNet.isInternetReachable) && !forceOffline;
+
+        if (!isActuallyOnline || isSyncingRef.current) return;
         isSyncingRef.current = true;
 
         try {
@@ -402,19 +404,15 @@ export default function ChatDetailScreen({
                 await MockBackendService.saveDatabase(chatId, initialSeed);
             }
             await reconcileThread();
-
-            if (online && !forceOffline) {
-                await runSequentialCatchUp();
-            }
         })();
-    }, [chatId, reconcileThread, runSequentialCatchUp, forceOffline]);
+    }, [chatId, reconcileThread]);
 
 
     useEffect(() => {
-        if (effectiveOnline) {
+        if (isDeviceConnected !== null && effectiveOnline) {
             runSequentialCatchUp();
         }
-    }, [effectiveOnline, runSequentialCatchUp]);
+    }, [effectiveOnline, isDeviceConnected, runSequentialCatchUp]);
 
 
     /**
